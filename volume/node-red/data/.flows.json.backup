@@ -1,0 +1,513 @@
+[
+    {
+        "id": "2968a4fcf75e9496",
+        "type": "tab",
+        "label": "Aedes",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "47a469b15c9c5f27",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1884",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "cf0dca49.2a9ac",
+        "type": "BACnet-Instance",
+        "name": "Room Simulator",
+        "instanceAddress": "2621562"
+    },
+    {
+        "id": "7adbdd83.bce224",
+        "type": "BACnet-Device",
+        "name": "Windows VM",
+        "deviceAddress": "10.2.13.215:53713"
+    },
+    {
+        "id": "e0bf099a.ee8468",
+        "type": "BACnet-Client",
+        "name": "",
+        "adpuTimeout": "3000",
+        "port": "47808",
+        "interface": "10.2.13.254",
+        "broadcastAddress": "255.255.255.255"
+    },
+    {
+        "id": "ef226397.1987f",
+        "type": "BACnet-Instance",
+        "name": "Temperature Water",
+        "instanceAddress": "1"
+    },
+    {
+        "id": "bd769110827337f2",
+        "type": "influxdb",
+        "hostname": "localhost",
+        "port": "8086",
+        "protocol": "http",
+        "database": "sensors",
+        "name": "influxdb",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "71f56412e0a1bd0b",
+        "type": "debug",
+        "z": "2968a4fcf75e9496",
+        "name": "Aedes Events",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "94a8707a2c4a4308",
+        "type": "aedes broker",
+        "z": "2968a4fcf75e9496",
+        "name": "Aedes MQTT Broker",
+        "mqtt_port": "1884",
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 850,
+        "y": 100,
+        "wires": [
+            [
+                "71f56412e0a1bd0b"
+            ],
+            [
+                "30bcabc71382bd19"
+            ]
+        ]
+    },
+    {
+        "id": "30bcabc71382bd19",
+        "type": "debug",
+        "z": "2968a4fcf75e9496",
+        "name": "Aedes Publish Events",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4195ccca2060a2c5",
+        "type": "mqtt out",
+        "z": "2968a4fcf75e9496",
+        "name": "MQTT Publisher",
+        "topic": "sensors",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "47a469b15c9c5f27",
+        "x": 840,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5ce36754784a00e0",
+        "type": "mqtt in",
+        "z": "2968a4fcf75e9496",
+        "name": "MQTT subscriber",
+        "topic": "sensors",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "47a469b15c9c5f27",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 380,
+        "wires": [
+            [
+                "ed51b3734a88ef79",
+                "215dd9c53ae802ad"
+            ]
+        ]
+    },
+    {
+        "id": "ed51b3734a88ef79",
+        "type": "debug",
+        "z": "2968a4fcf75e9496",
+        "name": "MQTT Message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b7f7d725869e3810",
+        "type": "BACnet-Read",
+        "z": "2968a4fcf75e9496",
+        "name": "Room Simulator",
+        "objectType": "8",
+        "instance": "cf0dca49.2a9ac",
+        "propertyId": "28",
+        "device": "7adbdd83.bce224",
+        "server": "e0bf099a.ee8468",
+        "multipleRead": false,
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "57153851918d05a1"
+            ]
+        ]
+    },
+    {
+        "id": "985b6519a1583a85",
+        "type": "inject",
+        "z": "2968a4fcf75e9496",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "b7f7d725869e3810"
+            ]
+        ]
+    },
+    {
+        "id": "57153851918d05a1",
+        "type": "debug",
+        "z": "2968a4fcf75e9496",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ff5e53f63951e2ec",
+        "type": "BACnet-Command",
+        "z": "2968a4fcf75e9496",
+        "name": "Who is?",
+        "commandType": "whoIs",
+        "timeDuration": 0,
+        "enableDisable": 0,
+        "deviceState": 0,
+        "isUtc": true,
+        "lowLimit": 0,
+        "highLimit": 0,
+        "device": "7adbdd83.bce224",
+        "server": "e0bf099a.ee8468",
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "57153851918d05a1"
+            ]
+        ]
+    },
+    {
+        "id": "df260e3e743a5d5b",
+        "type": "inject",
+        "z": "2968a4fcf75e9496",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "ff5e53f63951e2ec"
+            ]
+        ]
+    },
+    {
+        "id": "d4b940867a586fa3",
+        "type": "BACnet-Read",
+        "z": "2968a4fcf75e9496",
+        "name": "Read Temperature Indoor",
+        "objectType": "0",
+        "instance": "ef226397.1987f",
+        "propertyId": "85",
+        "device": "7adbdd83.bce224",
+        "server": "e0bf099a.ee8468",
+        "multipleRead": false,
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "38652562089973c6"
+            ]
+        ]
+    },
+    {
+        "id": "348a43e50bdd4ad1",
+        "type": "inject",
+        "z": "2968a4fcf75e9496",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "d4b940867a586fa3"
+            ]
+        ]
+    },
+    {
+        "id": "01ccf5d2b9c74de5",
+        "type": "BACnet-Read",
+        "z": "2968a4fcf75e9496",
+        "name": "Read Temperature Water",
+        "objectType": "2",
+        "instance": "ef226397.1987f",
+        "propertyId": "85",
+        "device": "7adbdd83.bce224",
+        "server": "e0bf099a.ee8468",
+        "multipleRead": false,
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "57153851918d05a1",
+                "38652562089973c6"
+            ]
+        ]
+    },
+    {
+        "id": "6c1f394a896b61dd",
+        "type": "inject",
+        "z": "2968a4fcf75e9496",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "01ccf5d2b9c74de5"
+            ]
+        ]
+    },
+    {
+        "id": "38652562089973c6",
+        "type": "function",
+        "z": "2968a4fcf75e9496",
+        "name": "Data Cleaning",
+        "func": "msg.payload = msg.payload[\"values\"][0].value;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 280,
+        "wires": [
+            [
+                "4195ccca2060a2c5"
+            ]
+        ]
+    },
+    {
+        "id": "215dd9c53ae802ad",
+        "type": "change",
+        "z": "2968a4fcf75e9496",
+        "name": "map",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fields.value",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fields.timestamps",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 420,
+        "wires": [
+            [
+                "d0158e4d1410bcf9",
+                "f0eb2330582c30b7"
+            ]
+        ]
+    },
+    {
+        "id": "d0158e4d1410bcf9",
+        "type": "debug",
+        "z": "2968a4fcf75e9496",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f0eb2330582c30b7",
+        "type": "influxdb out",
+        "z": "2968a4fcf75e9496",
+        "influxdb": "bd769110827337f2",
+        "name": "sensors @ influxdb",
+        "measurement": "sensors",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dbdd33071d15d5fe",
+        "type": "debug",
+        "z": "2968a4fcf75e9496",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 220,
+        "wires": []
+    }
+]
