@@ -3,15 +3,16 @@ version: '3.7'
 services:
 
   nodered:
-#   image: sheng2216/nodered-docker:bacnet
-    build:
-      context: ./node-red-bacnet-edition
-      dockerfile: ./Dockerfile
+    image: sheng2216/nodered-docker:modbus
+#    build:
+#      context: ./node-red-bacnet-edition
+#      dockerfile: ./Dockerfile
     container_name: NodeRed
     user: node-red
     group_add:
       - "997"
       - "998"
+      - dialout
     restart: unless-stopped
     devices:
       - "/dev/gpiochip0:/dev/gpiochip0"

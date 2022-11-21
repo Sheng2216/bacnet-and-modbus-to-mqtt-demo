@@ -1,0 +1,79 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@9.1.2
+2 info using node@v16.16.0
+3 timing npm:load:whichnode Completed in 3ms
+4 timing config:load:defaults Completed in 8ms
+5 timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 6ms
+6 timing config:load:builtin Completed in 7ms
+7 timing config:load:cli Completed in 6ms
+8 timing config:load:env Completed in 1ms
+9 timing config:load:file:/data/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 4ms
+11 timing config:load:file:/usr/src/node-red/.npmrc Completed in 0ms
+12 timing config:load:user Completed in 1ms
+13 timing config:load:file:/usr/local/etc/npmrc Completed in 6ms
+14 timing config:load:global Completed in 6ms
+15 timing config:load:setEnvs Completed in 4ms
+16 timing config:load Completed in 43ms
+17 timing npm:load:configload Completed in 43ms
+18 timing npm:load:mkdirpcache Completed in 1ms
+19 timing npm:load:mkdirplogs Completed in 1ms
+20 verbose title npm install
+21 verbose argv "install"
+22 timing npm:load:setTitle Completed in 6ms
+23 timing config:load:flatten Completed in 12ms
+24 timing npm:load:display Completed in 17ms
+25 verbose logfile logs-max:10 dir:/data/.npm/_logs/2022-11-21T07_48_50_722Z-
+26 verbose logfile /data/.npm/_logs/2022-11-21T07_48_50_722Z-debug-0.log
+27 timing npm:load:logFile Completed in 19ms
+28 timing npm:load:timers Completed in 0ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 93ms
+31 silly logfile done cleaning log files
+32 timing config:load:flatten Completed in 2ms
+33 timing arborist:ctor Completed in 2ms
+34 timing idealTree:init Completed in 131ms
+35 timing idealTree:userRequests Completed in 1ms
+36 silly idealTree buildDeps
+37 timing idealTree:#root Completed in 1ms
+38 timing idealTree:buildDeps Completed in 5ms
+39 timing idealTree:fixDepFlags Completed in 1ms
+40 timing idealTree Completed in 144ms
+41 timing arborist:ctor Completed in 0ms
+42 timing reify:loadTrees Completed in 197ms
+43 timing reify:diffTrees Completed in 14ms
+44 silly reify moves {}
+45 timing reify:retireShallow Completed in 5ms
+46 timing reify:createSparse Completed in 0ms
+47 timing reify:loadBundles Completed in 0ms
+48 silly audit bulk request {
+48 silly audit   '@influxdata/influxdb-client': [ '1.32.0' ],
+48 silly audit   debug: [ '4.3.4' ],
+48 silly audit   'iconv-lite': [ '0.5.2' ],
+48 silly audit   influx: [ '5.6.3' ],
+48 silly audit   lodash: [ '4.17.21' ],
+48 silly audit   ms: [ '2.1.2' ],
+48 silly audit   'node-bacnet': [ '0.2.4' ],
+48 silly audit   'node-red-contrib-bacnet': [ '0.2.7' ],
+48 silly audit   'node-red-contrib-influxdb': [ '0.6.1' ],
+48 silly audit   'safer-buffer': [ '2.1.2' ],
+48 silly audit   underscore: [ '1.13.6' ]
+48 silly audit }
+49 timing reify:unpack Completed in 11ms
+50 timing reify:unretire Completed in 1ms
+51 timing build:queue Completed in 0ms
+52 timing build:deps Completed in 2ms
+53 timing build Completed in 2ms
+54 timing reify:build Completed in 3ms
+55 timing reify:trash Completed in 0ms
+56 timing reify:save Completed in 33ms
+57 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 713ms
+58 timing auditReport:getReport Completed in 726ms
+59 silly audit report {}
+60 timing auditReport:init Completed in 0ms
+61 timing reify:audit Completed in 729ms
+62 timing reify Completed in 962ms
+63 timing command:install Completed in 991ms
+64 verbose exit 0
+65 timing npm Completed in 1156ms
+66 info ok

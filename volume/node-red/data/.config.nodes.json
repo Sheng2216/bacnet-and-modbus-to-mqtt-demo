@@ -649,25 +649,6 @@
             }
         }
     },
-    "@rakwireless/pn532": {
-        "name": "@rakwireless/pn532",
-        "version": "1.0.0",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "pn532_i2c": {
-                "name": "pn532_i2c",
-                "types": [
-                    "pn532_i2c"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "@rakwireless/pn532",
-                "file": "/usr/src/node-red/node_modules/@rakwireless/pn532/pn532/pn532_node.js"
-            }
-        }
-    },
     "@rakwireless/shtc3": {
         "name": "@rakwireless/shtc3",
         "version": "1.0.4",
@@ -722,80 +703,6 @@
                 "user": false,
                 "module": "node-red-contrib-aedes",
                 "file": "/usr/src/node-red/node_modules/node-red-contrib-aedes/aedes.js"
-            }
-        }
-    },
-    "node-red-contrib-bacnet": {
-        "name": "node-red-contrib-bacnet",
-        "version": "0.2.7",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "BACnet-Client": {
-                "name": "BACnet-Client",
-                "types": [
-                    "BACnet-Client"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-bacnet",
-                "file": "/usr/src/node-red/node_modules/node-red-contrib-bacnet/bacnet/bacnet-client.js"
-            },
-            "BACnet-Device": {
-                "name": "BACnet-Device",
-                "types": [
-                    "BACnet-Device"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-bacnet",
-                "file": "/usr/src/node-red/node_modules/node-red-contrib-bacnet/bacnet/bacnet-device.js"
-            },
-            "BACnet-Instance": {
-                "name": "BACnet-Instance",
-                "types": [
-                    "BACnet-Instance"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-bacnet",
-                "file": "/usr/src/node-red/node_modules/node-red-contrib-bacnet/bacnet/bacnet-instance.js"
-            },
-            "BACnet-Read": {
-                "name": "BACnet-Read",
-                "types": [
-                    "BACnet-Read"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-bacnet",
-                "file": "/usr/src/node-red/node_modules/node-red-contrib-bacnet/bacnet/bacnet-read.js"
-            },
-            "BACnet-Write": {
-                "name": "BACnet-Write",
-                "types": [
-                    "BACnet-Write"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-bacnet",
-                "file": "/usr/src/node-red/node_modules/node-red-contrib-bacnet/bacnet/bacnet-write.js"
-            },
-            "BACnet-Command": {
-                "name": "BACnet-Command",
-                "types": [
-                    "BACnet-Command"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-bacnet",
-                "file": "/usr/src/node-red/node_modules/node-red-contrib-bacnet/bacnet/bacnet-command.js"
             }
         }
     },
@@ -1095,6 +1002,131 @@
                 "user": false,
                 "module": "node-red-node-pi-gpiod",
                 "file": "/usr/src/node-red/node_modules/node-red-node-pi-gpiod/pi-gpiod.js"
+            }
+        }
+    },
+    "@rakwireless/pn532-i2c": {
+        "name": "@rakwireless/pn532-i2c",
+        "version": "1.1.0",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "pn532_i2c": {
+                "name": "pn532_i2c",
+                "types": [
+                    "pn532_i2c_config",
+                    "pn532_i2c_read",
+                    "pn532_i2c_write"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "@rakwireless/pn532-i2c",
+                "file": "/usr/src/node-red/node_modules/@rakwireless/pn532-i2c/pn532/pn532_node.js"
+            }
+        }
+    },
+    "node-red-contrib-bacnet": {
+        "name": "node-red-contrib-bacnet",
+        "version": "0.2.7",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "BACnet-Client": {
+                "name": "BACnet-Client",
+                "types": [
+                    "BACnet-Client"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-client.js"
+            },
+            "BACnet-Device": {
+                "name": "BACnet-Device",
+                "types": [
+                    "BACnet-Device"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-device.js"
+            },
+            "BACnet-Instance": {
+                "name": "BACnet-Instance",
+                "types": [
+                    "BACnet-Instance"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-instance.js"
+            },
+            "BACnet-Read": {
+                "name": "BACnet-Read",
+                "types": [
+                    "BACnet-Read"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-read.js"
+            },
+            "BACnet-Write": {
+                "name": "BACnet-Write",
+                "types": [
+                    "BACnet-Write"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-write.js"
+            },
+            "BACnet-Command": {
+                "name": "BACnet-Command",
+                "types": [
+                    "BACnet-Command"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-command.js"
+            }
+        }
+    },
+    "@mrcamilletti/node-red-contrib-serial-modbus-api": {
+        "name": "@mrcamilletti/node-red-contrib-serial-modbus-api",
+        "version": "1.1.1",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "modbus server": {
+                "name": "modbus server",
+                "types": [
+                    "modbus api server"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "@mrcamilletti/node-red-contrib-serial-modbus-api",
+                "file": "/usr/src/node-red/node_modules/@mrcamilletti/node-red-contrib-serial-modbus-api/modbus-api-server.js"
+            },
+            "modbus request": {
+                "name": "modbus request",
+                "types": [
+                    "modbus api request"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "@mrcamilletti/node-red-contrib-serial-modbus-api",
+                "file": "/usr/src/node-red/node_modules/@mrcamilletti/node-red-contrib-serial-modbus-api/modbus-api-request.js"
             }
         }
     }

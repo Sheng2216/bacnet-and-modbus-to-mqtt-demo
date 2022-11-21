@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
+        "node-red-contrib-bacnet": "~0.2.7",
         "node-red-contrib-influxdb": "^0.6.1"
     }
 }
