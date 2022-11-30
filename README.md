@@ -56,7 +56,7 @@ The simulator has an interface, and it looks like this:
    
    ![](assets/bacnet-in&mqtt-out.png)
    
-   After that, you need to use the ”Who is“ command to detect all the BACnet devices in the subnet first, and then configure the other **read node** in cyan to read from the BACnet device. Please check the demo video. Notice that this flow shares the same MQTT broker with the Modbus-to-MQTT bridge flow, so you might want to make sure the other flow is enabled, unless you created another MQTT broker.
+   After that, you need to use the ”Who is“ command to detect all the BACnet devices in the subnet first, and then configure the other **read node** in cyan to read from the BACnet device. Please check the [demo video](assets/Deploy a simple BACnet to MQTT bridge demo on WisGate Connect_EN_1.mp4). Notice that this flow shares the same MQTT broker with the Modbus-to-MQTT bridge flow, so you might want to make sure the other flow is enabled, unless you created another MQTT broker.
 
 4. (Optional) If you want to check the data received by the MQTT broker, please check Grafana's web interface to configure the data source and create a new panel.
 
