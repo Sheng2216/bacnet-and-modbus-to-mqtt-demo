@@ -56,7 +56,7 @@ The simulator has an interface, and it looks like this:
    
    ![](assets/bacnet-in&mqtt-out.png)
    
-   After that, you need to use the ”Who is“ command to detect all the BACnet devices in the subnet first, and then configure the other **read node** in cyan to read from the BACnet device. Please check the [demo video](assets/Deploy a simple BACnet to MQTT bridge demo on WisGate Connect_EN_1.mp4). Notice that this flow shares the same MQTT broker with the Modbus-to-MQTT bridge flow, so you might want to make sure the other flow is enabled, unless you created another MQTT broker.
+   After that, you need to use the ”Who is“ command to detect all the BACnet devices in the subnet first, and then configure the other **read node** in cyan to read from the BACnet device. Please check the [demo video](https://github.com/Sheng2216/bacnet-to-mqtt-modbus-to-mqtt/blob/main/assets/Deploy%20a%20simple%20BACnet%20to%20MQTT%20bridge%20demo%20on%20WisGate%20Connect_EN_1.mp4). Notice that this flow shares the same MQTT broker with the Modbus-to-MQTT bridge flow, so you might want to make sure the other flow is enabled, unless you created another MQTT broker.
 
 4. (Optional) If you want to check the data received by the MQTT broker, please check Grafana's web interface to configure the data source and create a new panel.
 
@@ -64,7 +64,7 @@ The simulator has an interface, and it looks like this:
 
 The default node-red flow enabled in the Node-RED container we created is the Modbus-to-MQTT bridge. In this example, the Wisblock sensor we provided can send temperature and humidity data to WisGate Connect periodically or upon request via Modbus protocol. The Node-RED flow will convert the data we received, and then publish it to an MQTT broker.
 
-The code running on the Wisblock sensor is saved in this repo as well, please check the code [here]([bacnet-to-mqtt-modbus-to-mqtt/rak5802_modbus.ino at main · Sheng2216/bacnet-to-mqtt-modbus-to-mqtt · GitHub](https://github.com/Sheng2216/bacnet-to-mqtt-modbus-to-mqtt/blob/main/rak5802_modbus_device/rak5802_modbus.ino)). 
+The code running on the Wisblock sensor is saved in this repo as well, please check the code [here](https://github.com/Sheng2216/bacnet-to-mqtt-modbus-to-mqtt/blob/main/rak5802_modbus_device/rak5802_modbus.ino). 
 
 After the Node-RED flow is deployed, you can click on the timestamp icon to trigger the output, and you should be able to see the temperature and humidity data have been published to the MQTT broker in the debug console.
 
