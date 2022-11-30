@@ -14,7 +14,11 @@ If you want to test out the Modbus-to-MQTT bridge, you will need a RAK4631 + RAK
 
 ## Software preparation
 
-The software set-up for these two use cases is different, thus we will cover them in two parts.
+The software set-up for these two use cases is different, thus we will cover them in two parts. You need to download the repo to you WisGate Connect first, please use the command below:
+
+```
+git clone https://github.com/Sheng2216/bacnet-to-mqtt-modbus-to-mqtt.git
+```
 
 #### 1. BACnet in and MQTT out
 
